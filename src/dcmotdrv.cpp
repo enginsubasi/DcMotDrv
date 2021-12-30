@@ -24,6 +24,9 @@
 
 #include "dcmotdrv.h"
 
+/*
+ * @about: Class constructor.
+ */
 dcMotDrv::dcMotDrv ( void )
 {
     isAllPinsDefined = false;
@@ -40,6 +43,9 @@ dcMotDrv::dcMotDrv ( void )
     signalCounter = 0;
 }
 
+/*
+ * @about: Class constructor.
+ */
 dcMotDrv::dcMotDrv ( void ( *digitalWritePrm )( uint32_t port, uint32_t pin, bool value ) )
 {
     isAllPinsDefined = false;
@@ -56,6 +62,9 @@ dcMotDrv::dcMotDrv ( void ( *digitalWritePrm )( uint32_t port, uint32_t pin, boo
     signalCounter = 0;
 }
 
+/*
+ * @about: Class constructor.
+ */
 dcMotDrv::dcMotDrv ( uint32_t dutyMaxPrm, void ( *digitalWritePrm )( uint32_t port, uint32_t pin, bool value ) )
 {
     isAllPinsDefined = false;
@@ -72,6 +81,9 @@ dcMotDrv::dcMotDrv ( uint32_t dutyMaxPrm, void ( *digitalWritePrm )( uint32_t po
     signalCounter = 0;
 }
 
+/*
+ * @about: Class constructor.
+ */
 dcMotDrv::dcMotDrv ( uint32_t dutyMaxPrm, void ( *digitalWritePrm )( uint32_t port, uint32_t pin, bool value ), uint32_t* portPrm, uint32_t* pinPrm )
 {
     driveState = driveNot;
@@ -99,6 +111,17 @@ dcMotDrv::dcMotDrv ( uint32_t dutyMaxPrm, void ( *digitalWritePrm )( uint32_t po
     isAllPinsDefined = true;
 }
 
+/*
+ * @about: Class destructor.
+ */
+dcMotDrv::~dcMotDrv ( void )
+{
+    // TODO:
+}
+
+/*
+ * @about:
+ */
 void dcMotDrv::resetAllPinsToLow ( void )
 {
     if ( isAllPinsDefined == true )
@@ -114,6 +137,9 @@ void dcMotDrv::resetAllPinsToLow ( void )
     }
 }
 
+/*
+ * @about:
+ */
 bool dcMotDrv::setDriveMode ( uint32_t value )
 {
     bool retVal = false;
@@ -137,6 +163,9 @@ bool dcMotDrv::setDriveMode ( uint32_t value )
     return ( retVal );
 }
 
+/*
+ * @about:
+ */
 bool dcMotDrv::setDriveDirection ( uint32_t value )
 {
     bool retVal = false;
@@ -155,6 +184,9 @@ bool dcMotDrv::setDriveDirection ( uint32_t value )
     return ( retVal );
 }
 
+/*
+ * @about:
+ */
 bool dcMotDrv::setDuty ( uint32_t value )
 {
     bool retVal = false;
@@ -187,11 +219,17 @@ bool dcMotDrv::setDuty ( uint32_t value )
     return ( retVal );
 }
 
+/*
+ * @about:
+ */
 uint32_t dcMotDrv::getDuty ( void )
 {
     return ( duty );
 }
 
+/*
+ * @about:
+ */
 void dcMotDrv::drive ( void )
 {
     if ( isAllPinsDefined == true )

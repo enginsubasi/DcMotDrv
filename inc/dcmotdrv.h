@@ -11,6 +11,7 @@ public:
     dcMotDrv ( void ( *digitalWritePrm )( uint32_t port, uint32_t pin, bool value ) );
     dcMotDrv ( uint32_t dutyMaxPrm, void ( *digitalWritePrm )( uint32_t port, uint32_t pin, bool value ) );
     dcMotDrv ( uint32_t dutyMaxPrm, void ( *digitalWritePrm )( uint32_t port, uint32_t pin, bool value ), uint32_t* portPrm, uint32_t* pinPrm );
+    ~dcMotDrv ( void );
 
     void resetAllPinsToLow ( void );
 
